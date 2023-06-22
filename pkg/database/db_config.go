@@ -13,7 +13,7 @@ type DBConfig struct {
 	DBName     string
 	DBUser     string
 	DBPassword string
-	PORT       string
+	DBPORT     string
 }
 
 var (
@@ -25,11 +25,11 @@ func ConnectDB(config *DBConfig) {
 		"%s:%s@tcp(localhost:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		config.DBUser,
 		config.DBPassword,
-		config.PORT,
+		config.DBPORT,
 		config.DBName,
 	)
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	utils.CheckDBError(err)
+	utils.CheckDBErr(err)
 	db = d
 }
 

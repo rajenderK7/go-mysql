@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type Movie struct {
 	gorm.Model
-	ID       int64  `json:"movie_id" gorm:"column:movie_id;primaryKey"`
+	ID       int64  `json:"movie_id"`
 	Name     string `json:"name" gorm:"column:name;not null"`
 	Runtime  int    `json:"runtime" gorm:"columne:runtime"`
 	Director string `json:"director" gorm:"director"`
