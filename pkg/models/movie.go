@@ -3,11 +3,10 @@ package models
 import "gorm.io/gorm"
 
 type Movie struct {
-	gorm.Model
-	ID       int64  `json:"movie_id"`
-	Name     string `json:"name" gorm:"column:name;not null"`
-	Runtime  int    `json:"runtime" gorm:"columne:runtime"`
-	Director string `json:"director" gorm:"director"`
+	MovieID  int32  `json:"movie_id" gorm:"column:movie_id;primaryKey"`
+	Name     int32  `json:"movie_name" gorm:"column:movie_name;not null"`
+	Runtime  int    `json:"runtime" gorm:"column:runtime"`
+	Director string `json:"director" gorm:"column:director;"`
 }
 
 func InitMovie(db *gorm.DB) {
