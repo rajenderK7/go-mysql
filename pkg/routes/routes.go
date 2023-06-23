@@ -20,4 +20,8 @@ func SetupRoutes(app *fiber.App) {
 	movieApi := api.Group("/movie")
 	movieApi.Post("/create", controllers.CreateMovie)
 	movieApi.Get("/movies", controllers.GetMovies)
+
+	bookingApi := api.Group("/booking")
+	bookingApi.Get("/", controllers.GetBookings)
+	bookingApi.Get("/:userID", controllers.GetBookingsByUser)
 }
