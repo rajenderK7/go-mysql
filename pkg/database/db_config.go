@@ -30,8 +30,6 @@ func ConnectDB(config *DBConfig) {
 	)
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	utils.CheckDBErr(err)
-	sqlDB, _ := d.DB()
-	defer sqlDB.Close()
 	db = d
 }
 

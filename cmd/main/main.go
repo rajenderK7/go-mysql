@@ -39,5 +39,7 @@ func main() {
 	database.ConnectDB(&config)
 	database.RunMigrations()
 	routes.SetupRoutes(&app)
+	sqlBD, _ := database.GetDB().DB()
+	defer sqlBD.Close()
 	log.Fatal(app.Listen(":4000"))
 }
